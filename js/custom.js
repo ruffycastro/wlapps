@@ -1,0 +1,1 @@
+$("#fullname").html(localStorage.getItem("fname") + ' ' + localStorage.getItem("lname"));
