@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="favicon.ico">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+    <link href="css/sticky-footer.css" rel="stylesheet">
+    <script src="js/ie-emulation-modes-warning.js"></script>
+    <style>
+    .loader {
+      border: 16px solid #f3f3f3;
+      border-radius: 50%;
+      border-top: 16px solid #3498db;
+      width: 120px;
+      height: 120px;
+      -webkit-animation: spin 2s linear infinite; /* Safari */
+      animation: spin 2s linear infinite;
+    }
+
+    /* Safari */
+    @-webkit-keyframes spin {
+      0% { -webkit-transform: rotate(0deg); }
+      100% { -webkit-transform: rotate(360deg); }
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    </style>
+<body>
+  <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index.html">SCAN</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="newclient.html">New Client</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="mydtr.html">My DTR</a></li>
+            <li><a href="mycrf.html">My CRF</a></li>
+            <li><a href="mycollection.html">My Collection</a></li>
+            <li><a href="fordtr.html">For DTR</a></li>
+            <li><a href="logout.html">Logout</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+    <div class="container">
+      <div class="page-header">&nbsp;&nbsp;&nbsp;</div>
+      <h3>Payment</h3>
+      <p>
+        <form>
+          <input type="hidden" name="userid" id="userid">
+          <input type="hidden" name="usercode" id="usercode">
+          <input type="hidden" name="result_id" id="result_id">
+          <input type="hidden" name="client_id" id="client_id">
+          <div class="form-group">
+            <label>Date</label>
+            <input id="date" type="date" name="date" class="form-control">
+          </div>
+          <div class="form-group">
+            <label>Type of Receipt</label>
+            <select class="form-control" name="type-of-receipt">
+              <option value="or" selected>OR</option>
+              <option value="ar" >AR</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Receipt Number</label>
+            <input type="number" name="receipt-number" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <label>Amount</label>
+            <input type="number" name="amount" class="form-control">
+          </div>
+          <div class="form-group">
+            <input type="submit" name="add_payment" value="Add Payment" class="btn btn-primary btn-lg btn-block">
+          </div>
+        </form>
+      </p>
+      <div id="loading" class="loader" style="display:none;margin:auto;"></div>
+      <div id="div1"></div>
+    </div>
+    <footer class="footer">
+      <div class="container">
+        <p class="text-muted">All rights reserved.</p>
+      </div>
+    </footer>
+      <!-- End of Add Test -->
+      <script src="js/jquery-1.12.4.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="js/ie10-viewport-bug-workaround.js"></script>
+    <script>
+          $(function () {
+            $('form').on('submit', function (e) {
+              e.preventDefault();
+              $("#div1").html('');
+              $('#loading').show();
+              $.ajax({
+                type: 'get',
+                url: 'https://unbloody-curlew-0788.dataplicity.io/webapi.php',
+                data: $('form').serialize(),
+                success: function (result) {
+                  $('#loading').hide();
+                  $('form').hide();
+                  $("#div1").html(result);
+                }
+              });
+
+            });
+
+          });
+          window.addEventListener("load", function(){
+              //GET CURRENT TIME
+            var dt = new Date();
+            var hours = dt.getHours();
+            var minutes = dt.getMinutes();
+            var ampm = hours >= 12 ? 'PM' : 'AM';
+            var strTime = hours + ':' + minutes + ' ' + ampm;
+
+            //s = dt.format("hh:mm tt");
+            //document.getElementById('time').value=strTime;
+
+            //GET CURRENT DATE
+            var today = new Date();
+            var dd = String(today.getDate()).padStart(2, '0');
+            var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+            var yyyy = today.getFullYear();
+
+            today = yyyy + '-' + mm + '-' + dd;
+            document.getElementById('date').value=today;
+
+            $("#usercode").val(localStorage.getItem("lsacode"));
+            $("#userid").val(localStorage.getItem("userid"));
+            $("#userfullname").val(localStorage.getItem("fname") + ' ' + localStorage.getItem("lname"));
+
+            //STRIP SCAN RESULT
+              var url_string = window.location.href;
+              var url = new URL(url_string);
+              var c = url.searchParams.get("result_id");
+              var d = url.searchParams.get("client_id");
+              $("#result_id").val(c);
+              $("#client_id").val(d);
+
+          });
+
+        </script>
+</body>
+</html>
