@@ -83,7 +83,7 @@
     //STRIP SCAN RESULT
       var url_string = window.location.href;
       var url = new URL(url_string);
-      var c = url.searchParams.get("scanresult");
+      var c = url.searchParams.get("customer_id");
       var d = c;
       var e = new URL(d);
       var f = e.searchParams.get("id");
@@ -102,7 +102,7 @@
       //split String
       var split = f;
       var arr = split.split("-");
-      document.getElementById("addtest-link").href = "addtest.html?customer_id="+arr[0];
+      document.getElementById("addtest-link").href = "addtest.html?customer_id="+c;
       document.getElementById("dtr-link").href = "dtr.html?result_id="+arr[1]+"&client_id="+arr[0];
       document.getElementById("payment-link").href = "payment.html?result_id="+arr[1];
       document.getElementById("updateclient-link").href = "updateclient.html?client_id="+arr[0];
