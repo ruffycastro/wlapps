@@ -52,7 +52,6 @@
           <ul class="nav navbar-nav">
             <li><a href="search.html">Search</a></li>
             <li><a href="newclient.html">New Client</a></li>
-            <li><a href="about.html">About</a></li>
             <li><a href="mydtr.html">My DTR</a></li>
             <li><a href="mycrf.html">My CRF</a></li>
             <li><a href="mycollection.html">My Collection</a></li>
@@ -69,7 +68,7 @@
         <form>
           <input type="hidden" id="usercode" name="usercode">
           <input type="hidden" id="userid" name="userid">
-          <input type="hidden" name="mycollection">
+          <input type="hidden" name="mydtr">
         </form>
       </p>
       <div id="div1"></div>
@@ -77,7 +76,7 @@
     </div>
     <footer class="footer">
       <div class="container">
-        <p class="text-muted">All rights reserved.</p>
+        <p class="text-muted" id="fullname"></p>
       </div>
     </footer>
       <!-- End of Add Test -->
@@ -105,5 +104,6 @@
       });
   });
 </script>
+<script src="js/custom.js"></script>
     </body>
 </html>
