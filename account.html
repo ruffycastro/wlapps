@@ -59,16 +59,27 @@
     </nav>
     <div class="container">
       <div class="page-header">&nbsp;&nbsp;&nbsp;</div>
+      <form>
+        <input type="hidden" name="account_no" id="account_no">
+        <input type="hidden" name="get_account_info">
+      </form>
       <p class="lead">Account Information</p>
       <p>
-    <div id="div1"></div>
+    <div id="div1">
+      <p>
+        <strong>Establishment</strong>
+      </p>
+      <p>
+        <strong>Owner</strong>
+      </p>
+    </div>
     <div id="loading" style="display:none;margin:auto;" class="loader"></div>
       </p>
       <div id="nav-btn">
         <a href="#" id="addtest-link" class="btn btn-warning btn-lg btn-block">Add Test</a>
-        <a href="#" id="dtr-link" class="btn btn-primary btn-lg btn-block">DTR</a>
+        <!--<a href="#" id="dtr-link" class="btn btn-primary btn-lg btn-block">DTR</a>
         <a href="#" id="payment-link" class="btn btn-success btn-lg btn-block">Payment</a>
-        <a href="#" id="updateclient-link" class="btn btn-danger btn-lg btn-block">Update Client Info</a>
+        <a href="#" id="updateclient-link" class="btn btn-danger btn-lg btn-block">Update Client Info</a> -->
       </div>
     </div>
     <footer class="footer">
@@ -85,13 +96,12 @@
       var url = new URL(url_string);
       var c = url.searchParams.get("customer_id");
       var d = c;
-      var e = new URL(d);
-      var f = e.searchParams.get("id");
-      document.getElementById('client_id').value=f;
+      document.getElementById("addtest-link").href = "addtest.html?customer_id="+c;
+      document.getElementById('account_no').value=c;
       $("#loading").show();
       $.ajax({
         type: 'get',
-        url: 'https://unbloody-curlew-0788.dataplicity.io/api/scanresultapi.php',
+        url: 'https://unbloody-curlew-0788.dataplicity.io/api/myapi.php',
         data: $('form').serialize(),
         success: function (result) {
           $("#loading").hide();
@@ -99,13 +109,16 @@
           $("#nav-btn").show();
         }
       });
+      /*var e = new URL(d);
+      var f = e.searchParams.get("id");
+      document.getElementById('client_id').value=f;
       //split String
       var split = f;
       var arr = split.split("-");
-      document.getElementById("addtest-link").href = "addtest.html?customer_id="+c;
+      document.getElementById("addtest-link").href = "addtest.html?customer_id="+arr[0];
       document.getElementById("dtr-link").href = "dtr.html?result_id="+arr[1]+"&client_id="+arr[0];
       document.getElementById("payment-link").href = "payment.html?result_id="+arr[1];
-      document.getElementById("updateclient-link").href = "updateclient.html?client_id="+arr[0];
+      document.getElementById("updateclient-link").href = "updateclient.html?client_id="+arr[0];*/
   });
 </script>
 <script src="js/custom.js"></script>
