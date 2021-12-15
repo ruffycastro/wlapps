@@ -82,7 +82,7 @@
            if (localStorage.getItem("userid") == null) {
               window.location = 'login.html';
             }
-            $("#fullname").val(localStorage.getItem("fname") + ' ' + localStorage.getItem("lname"))
+            $("#fullname").html(localStorage.getItem("fname") + ' ' + localStorage.getItem("lname"));
         </script>
         <script src="js/jquery-1.12.4.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
