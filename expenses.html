@@ -70,6 +70,13 @@
           <input type="hidden" id="userid" name="userid">
           <input type="hidden" id="fname" name="fname">
           <input type="hidden" name="myexpenses">
+          <div class="form-group">
+            <select>
+              <option value="daily" selected>Daily</option>
+              <option value="weekly">Weekly</option>
+              <option value="monthly">Monthly</option>
+            </select>
+          </div>
 
           <div class="form-grou">
             <label>Establistment</label>
@@ -91,7 +98,7 @@
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="js/ie10-viewport-bug-workaround.js"></script>
         <script type="text/javascript">
-  window.addEventListener("load", function(){
+  window.addEventListener("submit", function(){
     //STRIP SCAN RESULT
       $("#usercode").val(localStorage.getItem("lsacode"));
       $("#userid").val(localStorage.getItem("userid"));
