@@ -68,6 +68,7 @@
         <form>
           <input type="hidden" id="usercode" name="usercode">
           <input type="hidden" id="userid" name="userid">
+          <input type="hidden" id="fname" name="fname">
           <input type="hidden" name="myexpenses">
 
           <div class="form-grou">
@@ -94,6 +95,7 @@
     //STRIP SCAN RESULT
       $("#usercode").val(localStorage.getItem("lsacode"));
       $("#userid").val(localStorage.getItem("userid"));
+      $("#fname").val(localStorage.getItem("fname"));
       //$("#userfullname").val(localStorage.getItem("fname") + ' ' + localStorage.getItem("lname"));
       $("#loading").show();
       $.ajax({
