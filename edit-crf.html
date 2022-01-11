@@ -50,8 +50,8 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
+            <li><a href="search.html">Search</a></li>
             <li><a href="newclient.html">New Client</a></li>
-            <li><a href="about.html">About</a></li>
             <li><a href="mydtr.html">My DTR</a></li>
             <li><a href="mycrf.html">My CRF</a></li>
             <li><a href="mycollection.html">My Collection</a></li>
@@ -63,20 +63,25 @@
     </nav>
     <div class="container">
       <div class="page-header">&nbsp;&nbsp;&nbsp;</div>
-      <p class="lead">My CRF</p>
-      <p>
+      <p class="lead">Edit CRF</p>
+      <div id="loading" style="display:none;margin:auto;" class="loader"></div>
+      <div id="div1">
         <form>
           <input type="hidden" id="usercode" name="usercode">
           <input type="hidden" id="userid" name="userid">
-          <input type="hidden" name="mycrf">
+          <input type="hidden" id="fname" name="fname">
+          <input type="hidden" id="lname" name="lname">
+          <input type="hidden" name="editcrf">
+          <input type="hidden" name="result_id" id="result_id">
         </form>
-      </p>
-      <div id="div1"></div>
-      <div id="loading" style="display:none;margin:auto;" class="loader"></div>
+      </div>
     </div>
     <footer class="footer">
       <div class="container">
-        <p class="text-muted" id="fullname"></p>
+        <div class="row">
+          <div class="col-md-6"><p class="text-muted" id="fullname"></p></div>
+          <div class="col-md-6 text-right"></div>
+        </div>
       </div>
     </footer>
       <!-- End of Add Test -->
@@ -85,12 +90,18 @@
     <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="js/ie10-viewport-bug-workaround.js"></script>
-        <script type="text/javascript">
+    <script type="text/javascript">
   window.addEventListener("load", function(){
     //STRIP SCAN RESULT
       $("#usercode").val(localStorage.getItem("lsacode"));
       $("#userid").val(localStorage.getItem("userid"));
-      //$("#userfullname").val(localStorage.getItem("fname") + ' ' + localStorage.getItem("lname"));
+      $("#fname").val(localStorage.getItem("fname"));
+      $("#lname").val(localStorage.getItem("lname"));
+
+      var url_string = window.location.href;
+      var url = new URL(url_string);
+      var c = url.searchParams.get("id");
+      document.getElementById('result_id').value=c;
       $("#loading").show();
       $.ajax({
         type: 'get',
@@ -100,6 +111,19 @@
           $("#loading").hide();
           $("#div1").html(result);
           $("#nav-btn").show();
+        }
+      });
+  });
+  document.getElementById("add_expenses").addEventListener("click", function() {
+    event.preventDefault();
+    $("#loading").show();
+      $.ajax({
+        type: 'get',
+        url: 'https://unbloody-curlew-0788.dataplicity.io/api/myapi.php',
+        data: $('form').serialize(),
+        success: function (result) {
+          $("#loading").hide();
+          $("#div1").html(result);
         }
       });
   });
