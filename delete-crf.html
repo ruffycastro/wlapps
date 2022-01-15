@@ -69,14 +69,14 @@
         <h3>Are you sure to delete this CRF?</h3>
         <p>NOTE : Deleting this CRF will be removed on the system permanently.</p>
         <form>
+          <input type="hidden" name="delete_crf">
           <input type="hidden" id="usercode" name="usercode">
           <input type="hidden" id="userid" name="userid">
           <input type="hidden" id="fname" name="fname">
           <input type="hidden" id="lname" name="lname">
-          <input type="hidden" name="editcrf">
           <input type="hidden" name="result_id" id="result_id">
           <div class="form-group">
-            <input type="submit" name="delete_crf" class="btn btn-danger btn-block btn-lg" value="DELETE">
+            <input type="submit" id="delete_crf" class="btn btn-danger btn-block btn-lg" value="DELETE">
             <a href="mycrf.html" class="btn btn-default btn-block btn-lg">Cancel</a>
           </div>
         </form>
@@ -109,12 +109,12 @@
       var c = url.searchParams.get("id");
       document.getElementById('result_id').value=c;
   });
-  document.getElementById("add_expenses").addEventListener("click", function() {
+  document.getElementById("delete_crf").addEventListener("click", function() {
     event.preventDefault();
     $("#loading").show();
       $.ajax({
         type: 'get',
-        url: 'https://unbloody-curlew-0788.dataplicity.io/api/myapi.php',
+        url: 'https://unbloody-curlew-0788.dataplicity.io/api/deletecrf.php',
         data: $('form').serialize(),
         success: function (result) {
           $("#loading").hide();
