@@ -42,20 +42,52 @@
     </nav>
     <div class="container">
       <div class="page-header">&nbsp;&nbsp;&nbsp;</div>
-      <p class="lead">My DTR</p>
-      <p>
-        <form>
-          <input type="hidden" id="usercode" name="usercode">
-          <input type="hidden" id="userid" name="userid">
-          <input type="hidden" name="mydtr">
-        </form>
-      </p>
-      <div id="div1"></div>
+      <p style="text-align:center;"><h3>Welcome</h3></p>
       <div id="loading" style="display:none;margin:auto;" class="loader"></div>
+      <div id="div1">
+        <div class="btn-group btn-group-justified" role="group" aria-label="...">
+          <div class="btn-group" role="group">
+            <a href="index.html" type="button" class="btn btn-default btn-lg" ><i class="fas fa-qrcode"></i> SCAN</a>
+          </div>
+          <div class="btn-group" role="group">
+            <a href="search.html" type="button" class="btn btn-default btn-lg" ><i class="fas fa-search"></i> SEARCH</a>
+          </div>
+          <div class="btn-group" role="group">
+            <a href="manual.html" type="button" class="btn btn-default btn-lg" ><i class="fas fa-th-list"></i> Manual</a>
+          </div>
+        </div>
+        <br>
+        <div class="btn-group btn-group-justified" role="group" aria-label="...">
+          <div class="btn-group" role="group">
+            <a href="mycollection.html" type="button" class="btn btn-default btn-lg" ><i class="fas fa-coins"></i> Collection</a>
+          </div>
+          <div class="btn-group" role="group">
+            <a href="mydtr.html" type="button" class="btn btn-default btn-lg" ><i class="fas fa-folder"></i> My DTR</a>
+          </div>
+          <div class="btn-group" role="group">
+            <a href="addexpenses.html" type="button" class="btn btn-default btn-lg" ><i class="fas fa-money-bill"></i> Expenses</a>
+          </div>
+        </div>
+        <br>
+        <div class="btn-group btn-group-justified" role="group" aria-label="...">
+          <div class="btn-group" role="group">
+            <a href="mycollection.html" type="button" class="btn btn-default btn-lg" ><i class="fas fa-file-invoice"></i> CRF</a>
+          </div>
+          <div class="btn-group" role="group">
+            <a href="mydtr.html" type="button" class="btn btn-default btn-lg" ><i class="fas fa-folder"></i> For DTR</a>
+          </div>
+          <div class="btn-group" role="group">
+            <a href="expenses.html" type="button" class="btn btn-default btn-lg" ><i class="fas fa-money-bill"></i> My Expenses</a>
+          </div>
+        </div>
+      </div>
     </div>
     <footer class="footer">
       <div class="container">
-        <p class="text-muted" id="fullname"></p>
+        <div class="row">
+          <div class="col-md-6"><p class="text-muted" id="fullname"></p></div>
+          <div class="col-md-6 text-right"></div>
+        </div>
       </div>
     </footer>
       <!-- End of Add Test -->
@@ -64,13 +96,17 @@
     <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="js/ie10-viewport-bug-workaround.js"></script>
-        <script type="text/javascript">
+    <script type="text/javascript">
   window.addEventListener("load", function(){
     //STRIP SCAN RESULT
       $("#usercode").val(localStorage.getItem("lsacode"));
       $("#userid").val(localStorage.getItem("userid"));
-      //$("#userfullname").val(localStorage.getItem("fname") + ' ' + localStorage.getItem("lname"));
-      $("#loading").show();
+      $("#fname").val(localStorage.getItem("fname"));
+      $("#lname").val(localStorage.getItem("lname"));
+  });
+  document.getElementById("add_expenses").addEventListener("click", function() {
+    event.preventDefault();
+    $("#loading").show();
       $.ajax({
         type: 'get',
         url: 'https://unbloody-curlew-0788.dataplicity.io/api/myapi.php',
@@ -78,7 +114,6 @@
         success: function (result) {
           $("#loading").hide();
           $("#div1").html(result);
-          $("#nav-btn").show();
         }
       });
   });
