@@ -38,24 +38,21 @@
     </nav>
     <div class="container">
       <div class="page-header">&nbsp;&nbsp;&nbsp;</div>
-      <form>
+      <form style="visibility: hidden;">
         <input type="hidden" name="account_no" id="account_no">
         <input type="hidden" name="get_account_info">
       </form>
-      <p class="lead">Account Information</p>
-      <p>
-    <div id="div1">
-      <p>
-        <strong>Establishment</strong>
-      </p>
-      <p>
-        <strong>Owner</strong>
-      </p>
-    </div>
-    <div id="loading" style="display:none;margin:auto;" class="loader"></div>
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <strong>Account Information</strong>
+        </div>
+        <div class="panel-body" id="div1">
+          <div id="loading" style="display:none;margin:auto;" class="loader"></div>
+        </div>
+      </div>
       </p>
       <div id="nav-btn">
-        <a href="#" id="addtest-link" class="btn btn-warning btn-lg btn-block">Add Test</a>
+        <!-- <a href="#" id="addtest-link" class="btn btn-warning btn-lg btn-block">Add Test</a> -->
         <!--<a href="#" id="dtr-link" class="btn btn-primary btn-lg btn-block">DTR</a>
         <a href="#" id="payment-link" class="btn btn-success btn-lg btn-block">Payment</a>
         <a href="#" id="updateclient-link" class="btn btn-danger btn-lg btn-block">Update Client Info</a> -->
@@ -75,7 +72,7 @@
       var url = new URL(url_string);
       var c = url.searchParams.get("customer_id");
       var d = c;
-      document.getElementById("addtest-link").href = "addtest.html?customer_id="+c;
+      //document.getElementById("addtest-link").href = "addtest.html?customer_id="+c;
       document.getElementById('account_no').value=c;
       $("#loading").show();
       $.ajax({
