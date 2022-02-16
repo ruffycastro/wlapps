@@ -42,7 +42,7 @@
     </nav>
     <div class="container">
       <div class="page-header">&nbsp;&nbsp;&nbsp;</div>
-      <p class="lead">Delete CRF</p>
+      <p class="lead">Delete Payment</p>
       <div id="loading" style="display:none;margin:auto;" class="loader"></div>
       <div id="div1">
         <h3>Are you sure to delete this Payment?</h3>
@@ -53,7 +53,9 @@
           <input type="hidden" id="userid" name="userid">
           <input type="hidden" id="fname" name="fname">
           <input type="hidden" id="lname" name="lname">
-          <input type="hidden" name="result_id" id="result_id">
+          <input type="hidden" name="id_no" id="result_id">
+          <input type="hidden" name="sales_id" id="sales_id">
+          <input type="hidden" name="amount" id="amount">
           <div class="form-group">
             <input type="submit" id="delete_payment" class="btn btn-danger btn-block btn-lg" value="DELETE">
             <a href="mycollection.html" class="btn btn-default btn-block btn-lg">Cancel</a>
@@ -85,8 +87,12 @@
 
       var url_string = window.location.href;
       var url = new URL(url_string);
-      var c = url.searchParams.get("id");
+      var c = url.searchParams.get("id_no");
+      var d = url.searchParams.get("sales_id");
+      var e = url.searchParams.get("amount");
       document.getElementById('result_id').value=c;
+      document.getElementById('sales_id').value=d;
+      document.getElementById('amount').value=e;
   });
   document.getElementById("delete_payment").addEventListener("click", function() {
     event.preventDefault();
