@@ -46,7 +46,7 @@
         <form>
             <input type="hidden" name="add_test">
             <!-- <input type="hidden" name="time" id="time"> -->
-            <input type="hidden" name="date" id="date">
+            <input type="hidden" class="form-control" name="date" id="date">
             <input type="hidden" class="form-control" name="acct_no" id="client_response_id">
             <input type="hidden" name="userid" id="userid">
             <input type="hidden" name="usercode" id="usercode">
@@ -159,6 +159,11 @@
             $("#usercode").val(localStorage.getItem("lsacode"));
             $("#userid").val(localStorage.getItem("userid"));
             $("#userfullname").val(localStorage.getItem("fname") + ' ' + localStorage.getItem("lname"));
+
+            var user_code = localStorage.getItem("lsacode");
+            if (user_code == 'RD2') {
+              document.getElementById('date').type = 'date';
+            }
 
             //STRIP SCAN RESULT
               var url_string = window.location.href;
