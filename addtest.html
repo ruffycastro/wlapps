@@ -94,14 +94,15 @@
           <textarea name="place_sampling" class="form-control" placeholder="Purified (WRS) Faucet, Kitchen Faucet, well, ETC."></textarea>
           <br>
           <label>Test Price</label>
-          <input type="number" name="spcl_prc" class="form-control" required>
+          <input type="number" name="spcl_prc" id="spcl_prc" class="form-control" required>
           <br>
           <label>SOP</label>
-          <input type="number" name="sop" class="form-control" placeholder="0.00" required>
+          <input type="number" name="sop" id="sop" class="form-control" placeholder="0.00" required>
           <label>Lab Fee</label>
-          <input type="number" name="labfee" class="form-control" placeholder="0.00" required>
+          <input type="number" name="labfee" id="labfee" class="form-control" placeholder="0.00" required>
           <br>
           <input class="btn btn-success btn-lg btn-block" type="submit" value="SAVE">
+          <div id="testing"></div>
           </form>
     <div id="div1"></div>
     <div id="loading" style="display:none;margin:auto;" class="loader"></div>
@@ -188,6 +189,22 @@
               });
 
           });
+              $("#type").on('change', function() {
+                  var type = $(this).val();
+                  var acct_no = document.getElementById('client_response_id').value;
+                  $.ajax({
+                  type: 'GET',
+                  url: 'https://unbloody-curlew-0788.dataplicity.io/ajax/find-result.php?acct_no='+acct_no+'&type='+type,
+                  success : function(response) {
+                      var parsedResponse = $.parseJSON(response);
+
+                      //console.log(parsedResponse);
+                      document.getElementById("spcl_prc").value = parsedResponse[0].spcl_prc;
+                      document.getElementById("sop").value = parsedResponse[0].sop;
+                      document.getElementById("labfee").value = parsedResponse[0].lab_offc;
+                  }
+                });
+              });
 
         </script>
         <script src="js/custom.js"></script>
