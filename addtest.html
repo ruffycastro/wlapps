@@ -54,8 +54,9 @@
             <label>CRF Number</label>
             <div id="crftxtt" style="font-size: 30px;font-weight: bold;"></div>
             <input type="text" name="crf" id="crf" class="form-control">
+            <p id="crfwarning"></p>
             <label>Time Sampling / Pickup</label>
-            <input type="text" name="time" class="form-control" required>
+            <input type="text" name="time" id="time" class="form-control" required>
             <br>
             <label>Type of Test</label>
             <select name="type" id="type" class="form-control" required>
@@ -204,6 +205,29 @@
                       document.getElementById("labfee").value = parsedResponse[0].lab_offc;
                       document.getElementById("source").value = parsedResponse[0].source;
                       document.getElementById("place_sampling").value = parsedResponse[0].place_sampling;
+                  }
+                });
+              });
+
+              $("#time").on('change', function() {
+                  var crf = document.getElementById('crf').value;
+                  var usercode = document.getElementById('usercode').value;
+                  $.ajax({
+                  type: 'GET',
+                  url: 'https://unbloody-curlew-0788.dataplicity.io/ajax/find-result.php?crfnumber=&crf='+crf+'&usercode='+usercode,
+                  success: function (result) {
+                   $("#crfwarning").html(result);
+                  }
+                });
+              });
+              $("#crf").on('keyup', function() {
+                  var crf = $(this).val();
+                  var usercode = document.getElementById('usercode').value;
+                  $.ajax({
+                  type: 'GET',
+                  url: 'https://unbloody-curlew-0788.dataplicity.io/ajax/find-result.php?crfnumber=&crf='+crf+'&usercode='+usercode,
+                  success: function (result) {
+                   $("#crfwarning").html(result);
                   }
                 });
               });
