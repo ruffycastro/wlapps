@@ -80,7 +80,7 @@
               <option value="20">Chlorine Dioxide Only</option>
           </select>
           <label>Source</label>
-          <input type="text" name="source" class="form-control" required>
+          <input type="text" name="source" id="source" class="form-control" required>
           <br>
           <label>Environmental Condition</label>
           <select name="eviro" class="form-control">
@@ -91,7 +91,7 @@
           <label>Source of Water Supply</label>
           <input type="text" name="watersupply" class="form-control" placeholder="MWSS,Water District,Lake,River, Spring" required>
           <label>Sampling Location</label>
-          <textarea name="place_sampling" class="form-control" placeholder="Purified (WRS) Faucet, Kitchen Faucet, well, ETC."></textarea>
+          <textarea id="place_sampling" name="place_sampling" class="form-control" placeholder="Purified (WRS) Faucet, Kitchen Faucet, well, ETC."></textarea>
           <br>
           <label>Test Price</label>
           <input type="number" name="spcl_prc" id="spcl_prc" class="form-control" required>
@@ -202,6 +202,8 @@
                       document.getElementById("spcl_prc").value = parsedResponse[0].spcl_prc;
                       document.getElementById("sop").value = parsedResponse[0].sop;
                       document.getElementById("labfee").value = parsedResponse[0].lab_offc;
+                      document.getElementById("source").value = parsedResponse[0].source;
+                      document.getElementById("place_sampling").value = parsedResponse[0].place_sampling;
                   }
                 });
               });
