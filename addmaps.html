@@ -40,7 +40,7 @@
       <div class="page-header">&nbsp;&nbsp;&nbsp;</div>
       <form style="visibility: hidden;">
         <input type="hidden" name="account_no" id="account_no">
-        <input type="hidden" name="get_account_info">
+        <input type="hidden" name="get_account_info2">
       </form>
       <div class="panel panel-primary">
         <div class="panel-heading">
@@ -49,13 +49,17 @@
         <div class="panel-body" id="div1">
           <div id="loading" style="display:none;margin:auto;" class="loader"></div>
         </div>
-        <form>
+        <h3>Still working on this side!</h3>
+        <form id='addlocation' action="" method="">
+          <input type="hidden" name="account_no" id="account_no2" value="">
+          <input type="hidden" name="userid" id="userid">
+            <input type="hidden" name="usercode" id="usercode">
             <div class="form-group">
               <label>Location</label>
-              <textarea class="form-control" placeholder="Paste the pin here."></textarea>
+              <textarea class="form-control" placeholder="Paste the pin here." name="location"></textarea>
             </div>
             <div class="form-group">
-              <input type="submit" name="location" class="btn btn-success btn-block" value="SAVE LOCATION">
+              <input type="submit" class="submit" name="location" id="location" class="btn btn-success btn-block" value="SAVE LOCATION">
             </div>
           </form>
       </div>
@@ -67,6 +71,55 @@
         <a href="#" id="updateclient-link" class="btn btn-danger btn-lg btn-block">Update Client Info</a> -->
       </div>
     </div>
+    <script type="text/javascript">
+  window.addEventListener("load", function(){
+    //STRIP SCAN RESULT
+      var url_string = window.location.href;
+      var url = new URL(url_string);
+      var c = url.searchParams.get("customer_id");
+      var d = c;
+      //document.getElementById("addtest-link").href = "addtest.html?customer_id="+c;
+      console.log(c);
+      document.getElementById('account_no2').value=c;
+      $("#usercode").val(localStorage.getItem("lsacode"));
+      $("#userid").val(localStorage.getItem("userid"));
+      $("#loading").show();
+      $.ajax({
+        type: 'get',
+        url: 'https://unbloody-curlew-0788.dataplicity.io/api/myapi.php',
+        data: $('#addlocaton').serialize(),
+        success: function (result) {
+          $("#loading").hide();
+          $("#div1").html(result);
+          $("#nav-btn").show();
+        }
+      });
+      /*var e = new URL(d);
+      var f = e.searchParams.get("id");
+      document.getElementById('client_id').value=f;
+      //split String
+      var split = f;
+      var arr = split.split("-");
+      document.getElementById("addtest-link").href = "addtest.html?customer_id="+arr[0];
+      document.getElementById("dtr-link").href = "dtr.html?result_id="+arr[1]+"&client_id="+arr[0];
+      document.getElementById("payment-link").href = "payment.html?result_id="+arr[1];
+      document.getElementById("updateclient-link").href = "updateclient.html?client_id="+arr[0];*/
+  });
+  $(document).ready(function(){
+
+    $('.submit').on("click", function() {
+
+        var form = $(this).closest('form');
+
+        $.post("https://unbloody-curlew-0788.dataplicity.io/api/addmaps.php", form.serialize(), function(response) {
+            form.find('#div1').html(response);
+        });
+
+        return false;
+
+    });
+});
+</script>
     <footer class="footer">
       <div class="container">
         <p class="text-muted" id="fullname"></p>
