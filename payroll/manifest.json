@@ -13,13 +13,13 @@
       "sizes": "512x512"
     }
   ],
-  "start_url": "/?utm_source=homescreen",
+  "start_url": "/payroll",
   "background_color": "#FF0000",
-  "scope": ".",
+  "scope": "",
   "display": "standalone",
   "orientation": "portrait-primary",
   "prefer_related_applications": true,
-  "description": "Progressive Web Application by Michael Stattelman.",
+  "description": "Waterlab payroll facility.",
   "dir": "ltr",
   "lang": "en-US",
   "theme_color": "#FF0000"
