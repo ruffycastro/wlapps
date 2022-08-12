@@ -1,54 +1,37 @@
-<p align="center">
-	<img alt="Rice Bowl" src="public/images/icon-512.png" width="90">
-	<h2 align="center">Next PWA Template</h2>
-</p>
+# pwa-template
+This a base template for a Progressive Web Application.
 
-<p align="center">Fluffless app template to inspire less</p>
 
-<p align="center">
-	<a href="https://next-pwa-template.now.sh">Live demo</a>
-</p>
+![Android](emulator.png)
 
-<p align="center">
-	<a href="https://web.dev/measure">
-		<img alt="100% lighthouse scores" src="https://img.shields.io/badge/lighthouse-100%25-845EF7.svg?logo=lighthouse&logoColor=white&style=flat-square" />
-	</a>
-</p>
 
-## Features
+This is just a skeleton structure for you to insert your code, css and js files and provide you with the prompt "add to homescreen" on mobile devices. 
 
-- ✨ Fluffless PWA using Next 12
-- 🌗 Lovely night/day themes
-- 🦄 Easily removable [nice-to-haves](#use-only-what-you-need)
-- 📱 Native-like mobile experience
-- 📦 Neatly wrapped like that avocado you got for christmas
+******As long as your site is accessed over https******
 
-## Getting started
+#Directory Structure:
 
-1. [Use this template](https://github.com/mvllow/next-pwa-template/generate)
-2. Replace `public/images` with your own
-3. Enjoy ✨
+            |- index.html
+            
+            |- manifest.json
+            
+            |- service-worker.js
+            
+            |- styles/
+            
+            |- scripts/
 
-## Use only what you need
+              |- app.js
 
-Fluffless doesn't mean "start with nothing". The goal of this template is to be an entry into maintainable apps.
+            |- img/    
 
-**The essentials**
+                |- 1.jpg
 
-- Typescript, made easy with Next.js
-- [tailwindcss](https://github.com/tailwindlabs/tailwindcss) for utility-first styling
-- [next-pwa](https://github.com/shadowwalker/next-pwa) for offline support
+                |- icons/
+                  - * (all standard icons and favicons)
+                
+                
+#Demo:(----Visit demo from a mobile device to see the prompt----)
 
-**Nice to haves**
+https://pwa-mjs.firebaseapp.com/
 
-- [next-themes](https://github.com/pacocoursey/next-themes) or similar for low stress theming
-
-## Gallery
-
-### Desktop
-
-<img alt="" src="public/images/macos.png" width="500" />
-
-### Mobile
-
-<img alt="" src="public/images/ios.png" width="500" />
