@@ -69,12 +69,12 @@
             //If a camera is detected
             if (cameras.length > 0) {
                 //If the user has a rear/back camera
-                if (cameras[1]) {
+                if (cameras[0]) {
                     //use that by default
-                    scanner.start(cameras[1]);
+                    scanner.start(cameras[0]);
                 } else {
                     //else use front camera
-                    scanner.start(cameras[0]);
+                    scanner.start(cameras[1]);
                 }
             } else {
                 //if no cameras are detected give error
