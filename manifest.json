@@ -14,7 +14,7 @@
     }
   ],
   "scope": ".",
-  "start_url": "https://adminwaterlab.github.io/payroll/dashboard.html",
+  "start_url": "welcome.html",
   "display": "standalone",
   "theme_color": "#1786de",
   "background_color": "#137dd1",
