@@ -65,7 +65,18 @@ body {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+    animation: fadeInAnimation ease 3s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
 }
+@keyframes fadeInAnimation {
+          0% {
+              opacity: 0;
+          }
+          100% {
+              opacity: 1;
+          }
+      }
     .loader {
       border: 16px solid #f3f3f3;
       border-radius: 50%;
