@@ -76,7 +76,11 @@
         <script type="text/javascript">
   window.addEventListener("load", function(){
     //STRIP SCAN RESULT
-    $("#loading").show();
+      $(function(){
+      // make a basic fadeIn animation
+        $("#div1").fadeIn();
+      });
+      $("#loading").show();
       $("#usercode").val(localStorage.getItem("lsacode"));
       $("#userid").val(localStorage.getItem("userid"));
       $("#fname").val(localStorage.getItem("fname"));
