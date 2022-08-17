@@ -7,5 +7,5 @@ $("#fullname").html(localStorage.getItem("fname") + ' ' + localStorage.getItem("
 $("#fname").html("Hi, " + localStorage.getItem("fname"));
 if ("serviceWorker" in navigator) {
   // register service worker
-  navigator.serviceWorker.register("serviceworker.js");
+  navigator.serviceWorker.register("./serviceworker.js");
 }
