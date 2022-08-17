@@ -91,9 +91,11 @@
       $("#userid").val(localStorage.getItem("userid"));
       $("#fname").val(localStorage.getItem("fname"));
 
+      var Userid = localStorage.getItem("userid");
+
       $.ajax({
         type: 'get',
-        url: 'https://unbloody-curlew-0788.dataplicity.io/api/myapi.php?hello=',
+        url: 'https://unbloody-curlew-0788.dataplicity.io/api/myapi.php?get_expenses=&userid=' + Userid,
         success: function (result) {
           $("#loading").hide();
           $("#div1").html(result);
