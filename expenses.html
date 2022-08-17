@@ -28,13 +28,7 @@
           <a class="navbar-brand" href="welcome.html"><i class="fas fa-home"></i></a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
-          <ul class="nav navbar-nav">
-            <li><a href="search.html">Search</a></li>
-            <li><a href="newclient.html">New Client</a></li>
-            <li><a href="mydtr.html">My DTR</a></li>
-            <li><a href="mycrf.html">My CRF</a></li>
-            <li><a href="mycollection.html">My Collection</a></li>
-            <li><a href="fordtr.html">For DTR</a></li>
+            <li><a href="about.html">About</a></li>
             <li><a href="logout.html">Logout</a></li>
           </ul>
         </div><!--/.nav-collapse -->
@@ -95,6 +89,16 @@
       $("#usercode").val(localStorage.getItem("lsacode"));
       $("#userid").val(localStorage.getItem("userid"));
       $("#fname").val(localStorage.getItem("fname"));
+
+      $.ajax({
+        type: 'get',
+        url: 'https://unbloody-curlew-0788.dataplicity.io/api/myapi.php?hello=',
+        success: function (result) {
+          $("#loading").hide();
+          $("#div1").html(result);
+          $("#nav-btn").show();
+        }
+      });
   });
   document.getElementById("myBtn").addEventListener("click", function() {
     event.preventDefault();
