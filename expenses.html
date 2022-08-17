@@ -54,11 +54,10 @@
           <input type="submit" value="Filter" name="" id="myBtn" class="btn btn-success btn-block">
         </form>
       </p>
-      <div id="loading" style="display:none;margin:auto;" class="loader">
-        
+      <div id="loading" style="display:none;margin:auto;text-align: center;">
+        <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
       </div>
       <div id="div1" style="text-align: center;">
-        <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
         <table class="table table-bordered table-condensed">
           <thead>
             <tr>
@@ -90,6 +89,7 @@
         <script type="text/javascript">
   window.addEventListener("load", function(){
     //STRIP SCAN RESULT
+    $("#loading").show();
       $("#usercode").val(localStorage.getItem("lsacode"));
       $("#userid").val(localStorage.getItem("userid"));
       $("#fname").val(localStorage.getItem("fname"));
