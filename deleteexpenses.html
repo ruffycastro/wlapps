@@ -77,19 +77,17 @@
   window.addEventListener("load", function(){
     //STRIP SCAN RESULT
       $("#loading").show();
-      $("#usercode").val(localStorage.getItem("lsacode"));
-      $("#userid").val(localStorage.getItem("userid"));
-      $("#fname").val(localStorage.getItem("fname"));
 
-      var Userid = localStorage.getItem("userid");
+      var url_string = window.location.href;
+      var url = new URL(url_string);
+      var c = url.searchParams.get("expensesid");
 
       $.ajax({
         type: 'get',
-        url: 'https://unbloody-curlew-0788.dataplicity.io/api/myapi.php?delete_expenses=&expensesid=' + Userid,
+        url: 'https://unbloody-curlew-0788.dataplicity.io/api/myapi.php?delete_expenses=&expensesid=' + c,
         success: function (result) {
           $("#loading").hide();
           $("#div1").html(result);
-          $("#nav-btn").show();
         }
       });
   });
