@@ -15,3 +15,12 @@ self.addEventListener('fetch', function(event){
 self.addEventListener('beforeinstallprompt', (e) => {
     deferredPrompt = e;
 });
+
+const button = document.getElementById('notifications');
+button.addEventListener('click', () => {
+  Notification.requestPermission().then((result) => {
+    if (result === 'granted') {
+      randomNotification();
+    }
+  });
+})
