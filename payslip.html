@@ -61,9 +61,14 @@
     <script src="js/custom.js"></script>
     <script src="js/ie10-viewport-bug-workaround.js"></script>
         <script type="text/javascript">
+          window.addEventListener("load", function(){
+            var url_string = window.location.href;
+            var url = new URL(url_string);
+            var c = url.searchParams.get("payslipid");
+          });
           $(document).ready(function(){
             $("#loading").show();
-             $('#div1').load("https://unbloody-curlew-0788.dataplicity.io/simple/payroll/payslip.php?id=3");
+             $('#div1').load("https://unbloody-curlew-0788.dataplicity.io/simple/payroll/payslip.php?id="+c);
              $("#loading").hide();
           });
         </script>
