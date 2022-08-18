@@ -67,10 +67,11 @@
     //STRIP SCAN RESULT
       $("#usercode").val(localStorage.getItem("lsacode"));
       $("#userid").val(localStorage.getItem("userid"));
+      var UserId = localStorage.getItem("userid");
       $("#loading").show();
       $.ajax({
         type: 'get',
-        url: 'https://unbloody-curlew-0788.dataplicity.io/api/myapi.php',
+        url: 'https://unbloody-curlew-0788.dataplicity.io/api/payroll.php?payroll=&userid='+UserId,
         data: $('form').serialize(),
         success: function (result) {
           $("#loading").hide();
