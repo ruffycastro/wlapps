@@ -43,8 +43,7 @@
     </nav>
         <div class="container">
           <div class="page-header">&nbsp;&nbsp;&nbsp;</div>
-          <h3 id="fname"></h3>
-          <div id="loading" style="display:none;margin:auto;text-align: center;">
+          <div id="loading" style="margin:auto;text-align: center;">
         <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
       </div>
       <div id="div1"></div>
@@ -62,22 +61,11 @@
     <script src="js/custom.js"></script>
     <script src="js/ie10-viewport-bug-workaround.js"></script>
         <script type="text/javascript">
-  window.addEventListener("load", function(){
-    //STRIP SCAN RESULT
-      $("#usercode").val(localStorage.getItem("lsacode"));
-      $("#userid").val(localStorage.getItem("userid"));
-      var UserId = localStorage.getItem("userid");
-      $("#loading").show();
-      $.ajax({
-        type: 'get',
-        url: 'https://unbloody-curlew-0788.dataplicity.io/api/payroll.php?payroll=&userid='+UserId,
-        data: $('form').serialize(),
-        success: function (result) {
-          $("#loading").hide();
-          $("#div1").html(result);
-        }
-      });
-  });
-</script>
+          $(document).ready(function(){
+            $("#loading").show();
+             $('#div1').load("https://unbloody-curlew-0788.dataplicity.io/simple/payroll/payslip.php?id=3");
+             $("#loading").hide();
+          });
+        </script>
     </body>
 </html>
