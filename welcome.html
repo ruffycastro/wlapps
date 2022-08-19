@@ -23,6 +23,24 @@
   <meta name="theme-color" content="#FF0000"/>
   <meta name="mobile-web-app-capable" content="yes">
   <link rel="manifest" href="/manifest.json" />
+  <style>
+      .containers {
+        height: 100vh;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      #enableNotifications {
+        height: 80px;
+        width: 350px;
+        background-color: black;
+        color: white;
+        border: 1px;
+        border-radius: 500px;
+        font-size: 24px;
+      }
+    </style>
     </head>
     <body>
       <!-- Fixed navbar -->
@@ -45,6 +63,9 @@
         </div><!--/.nav-collapse -->
       </div>
     </nav>
+    <div class="containers">
+      <button id="enableNotifications">🔔 Enable Notification</button>
+    </div>
     <div class="container">
       <div class="page-header">&nbsp;&nbsp;&nbsp;</div>
       <p style="text-align:center;"><h3>Welcome</h3></p>
