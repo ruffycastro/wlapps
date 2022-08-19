@@ -117,9 +117,8 @@
       var url_string = window.location.href;
       var url = new URL(url_string);
       var c = url.searchParams.get("id");
-  });
-  $(document).ready(function(){
-    $.ajax({
+
+      $.ajax({
         url: 'https://unbloody-curlew-0788.dataplicity.io/api/client.php?editclient=&id='+c,
         type: 'get',
         dataType: 'JSON',
@@ -143,7 +142,7 @@
 
         }
     });
-});
+  });
 </script>
 <script src="js/custom.js"></script>
 <script src="js/app.js" async></script>
