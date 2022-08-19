@@ -89,10 +89,11 @@
           <textarea class="form-control" id="note" name="note"></textarea>
         </div>
         <div class="form-group">
-          <a href="" class="btn btn-default btn-block">Cancel</a>
+          <a href="" id="urlback" class="btn btn-default btn-block">Cancel</a>
           <input type="submit" name="" class="btn btn-primary btn-block" value="UPDATE">
         </div>
       </form>
+      <div id="div1"></div>
       <div id="loading" style="display:none;margin:auto;text-align: center;">
         <h4>Processing....</h4>
         <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
@@ -125,6 +126,9 @@
       var c = url.searchParams.get("id");
 
       $("#clientid").val(url.searchParams.get("id"));
+
+      var link = document.getElementById("urlback");
+      link.setAttribute('href', "account.html?customer_id="+c);
 
       $.ajax({
         url: 'https://unbloody-curlew-0788.dataplicity.io/api/client.php?editclient=&id='+c,
