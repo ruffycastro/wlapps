@@ -56,35 +56,35 @@
         </div>
         <div class="form-group">
           <label>Owner</label>
-          <input type="text" name="owner" class="form-control">
+          <input type="text" id="owner" name="owner" class="form-control">
         </div>
         <div class="form-group">
           <label>Address</label>
-          <input type="text" name="address" class="form-control">
+          <input type="text" id="address" name="address" class="form-control">
         </div>
         <div class="form-group">
           <label>Municipality</label>
-          <input type="text" name="municipality" class="form-control">
+          <input type="text" id="municipality" name="municipality" class="form-control">
         </div>
         <div class="form-group">
           <label>Province</label>
-          <input type="text" name="province" class="form-control">
+          <input type="text" id="province" name="province" class="form-control">
         </div>
         <div class="form-group">
           <label>Contact Number</label>
-          <input type="number" name="contact_no" class="form-control">
+          <input type="number" id="contact_no" name="contact_no" class="form-control">
         </div>
         <div class="form-group">
           <label>Email</label>
-          <input type="email" name="email" class="form-control">
+          <input type="email" id="email" name="email" class="form-control">
         </div>
         <div class="form-group">
           <label>Landmark</label>
-          <input type="text" name="" class="form-control">
+          <input type="text" id="landmark" name="landmark" class="form-control">
         </div>
         <div class="form-group">
           <label>Remarks</label>
-          <textarea class="form-control" name=""></textarea>
+          <textarea class="form-control" id="note" name="note"></textarea>
         </div>
         <div class="form-group">
           <a href="" class="btn btn-default btn-block">Cancel</a>
@@ -124,6 +124,14 @@
         dataType: 'JSON',
         success: function(response){
             $('#company').val(response[0].company);
+            $('#owner').val(response[0].owner);
+            $('#address').val(response[0].address);
+            $('#municipality').val(response[0].municipality);
+            $('#province').val(response[0].province);
+            $('#contact_no').val(response[0].contact_no);
+            $('#email').val(response[0].email);
+            $('#landmark').val(response[0].landmark);
+            $('#note').val(response[0].note);
 
         }
     });
