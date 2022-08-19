@@ -48,9 +48,10 @@
     <div class="container">
       <div class="page-header">&nbsp;&nbsp;&nbsp;</div>
       <p style="text-align:center;"><h4>Edit Client</h4></p>
-      <form>
+      <form id="form">
         <input type="hidden" id="clientid" name="clientid">
         <input type="hidden" id="userid" name="userid">
+        <input type="hidden" name="updateclient">
         <div class="form-group">
           <label>Company</label>
           <input type="text" id="company" name="company" class="form-control" readonly="readonly">
@@ -93,6 +94,7 @@
         </div>
       </form>
       <div id="loading" style="display:none;margin:auto;text-align: center;">
+        <h4>Processing....</h4>
         <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
       </div>
     </div>
@@ -122,6 +124,8 @@
       var url = new URL(url_string);
       var c = url.searchParams.get("id");
 
+      $("#clientid").val(url.searchParams.get("id"));
+
       $.ajax({
         url: 'https://unbloody-curlew-0788.dataplicity.io/api/client.php?editclient=&id='+c,
         type: 'get',
@@ -142,10 +146,11 @@
   });
   $(document).ready(function () {
             $("form").submit(function (event) {
+              $('#form').hide();
               $('#loading').show();
               $.ajax({
                 type: "GET",
-                url: "https://unbloody-curlew-0788.dataplicity.io/client.php?updateclient=",
+                url: "https://unbloody-curlew-0788.dataplicity.io/api/client.php",
                 data: $('form').serialize(),
                 success: function (result) {
                   $('#loading').hide();
