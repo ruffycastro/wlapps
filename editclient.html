@@ -113,10 +113,14 @@
       $("#userid").val(localStorage.getItem("userid"));
       $("#fname").val(localStorage.getItem("fname"));
       $("#lname").val(localStorage.getItem("lname"));
+
+      var url_string = window.location.href;
+      var url = new URL(url_string);
+      var c = url.searchParams.get("id");
   });
   $(document).ready(function(){
     $.ajax({
-        url: 'https://unbloody-curlew-0788.dataplicity.io/api/client.php?id=006835',
+        url: 'https://unbloody-curlew-0788.dataplicity.io/api/client.php?id='+c,
         type: 'get',
         dataType: 'JSON',
         success: function(response){
