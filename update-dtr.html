@@ -37,29 +37,16 @@
     </nav>
     <div class="container">
       <div class="page-header">&nbsp;&nbsp;&nbsp;</div>
-      <p class="lead">My Expenses <a href="addexpenses.html" class="btn btn-success btn-xs" title="Add Expenses">+</a></p>
+      <p class="lead">Update DTR</p>
       <p><form>
         <input type="hidden" name="userid" id="userid">
-        <label>Filter by Date</label>
-        <input type="date" name="date">
-        <input type="submit" name="date_voucer" id="voucherdate" class="btn btn-success">
+        <input type="hidden" name="usercode" id="usercode">
+        <input type="hidden" name="resultid" id="resultid">
+        <label>Date Delivered</label>
+        <input type="date" name="date_delivered">
+        <input type="submit" name="update_dtr" class="btn btn-success" value="Update">
       </form></p>
-      <!-- <p>
-        <form>
-          <input type="hidden" id="usercode" name="usercode">
-          <input type="hidden" id="userid" name="userid">
-          <input type="hidden" id="fname" name="fname">
-          <input type="hidden" name="myexpenses">
-          <div class="form-group">
-            <select class="form-control" name="dategroup">
-              <option value="daily" selected>Daily</option>
-              <option value="weekly">Weekly</option>
-              <option value="monthly">Monthly</option>
-            </select>
-          </div>
-          <input type="submit" value="Filter" name="" id="myBtn" class="btn btn-success btn-block">
-        </form>
-      </p> -->
+      <p><strong>Select the date when the Test Result been delivered.</strong></p>
       <div id="loading" style="display:none;margin:auto;text-align: center;">
         <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
       </div>
@@ -82,51 +69,35 @@
         <script type="text/javascript">
   window.addEventListener("load", function(){
     //STRIP SCAN RESULT
-      $("#loading").show();
       $("#usercode").val(localStorage.getItem("lsacode"));
       $("#userid").val(localStorage.getItem("userid"));
       $("#fname").val(localStorage.getItem("fname"));
 
+      //STRIP SCAN RESULT
+      var url_string = window.location.href;
+      var url = new URL(url_string);
+      var c = url.searchParams.get("resultid");
+      document.getElementById('resultid').value=c;
+
       var Userid = localStorage.getItem("userid");
 
-      $.ajax({
-        type: 'get',
-        url: 'https://unbloody-curlew-0788.dataplicity.io/api/myapi.php?get_expenses=&userid=' + Userid,
-        success: function (result) {
-          $("#loading").hide();
-          $("#div1").html(result);
-          $("#nav-btn").show();
-        }
-      });
   });
-  document.getElementById("myBtn").addEventListener("click", function() {
-    event.preventDefault();
-    $("#loading").show();
-      $.ajax({
-        type: 'get',
-        url: 'https://unbloody-curlew-0788.dataplicity.io/api/myapi.php',
-        data: $('form').serialize(),
-        success: function (result) {
-          $("#loading").hide();
-          $("#div1").html(result);
-          $("#nav-btn").show();
-        }
-      });
-  });
-  $(document).on('submit','#voucherdate',function(e) {
-    e.preventDefault();
-    $("#loading").show();
-      $.ajax({
-        type: 'get',
-        url: 'https://unbloody-curlew-0788.dataplicity.io/api/myapi.php',
-        data: $('form').serialize(),
-        success: function (result) {
-          $("#loading").hide();
-          $("#div1").html(result);
-          $("#nav-btn").show();
-        }
-      });
-  });
+  $(document).ready(function(){
+        $("form").submit(function(event) {
+            event.preventDefault();
+            $('#loading').show();
+
+            $.ajax({
+                    type: 'get',
+                    url: 'https://unbloody-curlew-0788.dataplicity.io/api/myapi.php',
+                    data: $('form').serialize(),
+                    success: function (result) {
+                      $('#loading').hide();
+                      $("#div1").html(result);
+                    }
+                  });
+        });
+    });
 </script>
 <script src="js/custom.js"></script>
     </body>

@@ -17,7 +17,7 @@
   "start_url": "welcome.html",
   "display": "standalone",
   "theme_color": "#1786de",
-  "background_color": "#137dd1",
+  "background_color": "#1786de",
   "orientation": "portrait-primary",
   "prefer_related_applications": true,
   "description": "Waterlab Payroll System by Ogie Castro",
