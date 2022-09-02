@@ -107,3 +107,6 @@ body {
       background-color: #ffffff;
       padding: 10px;
     }
+    .unread{
+      font-weight: bolder;
+    }
