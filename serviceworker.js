@@ -2,7 +2,7 @@ const CACHE_NAME = 'wl-apps-v1';
 
 const INITIAL_CACHED_RESOURCES = [
     '/',
-    '/offline/',
+    '/offline.html',
     '/all/',
     '/browser/edge/',
     '/browser/safari/',
