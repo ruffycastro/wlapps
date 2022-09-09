@@ -50,7 +50,8 @@
           <thead>
             <tr>
               <th>Date</th>
-              <th>Total Client</th>
+              <th>Client</th>
+              <th>Sample</th>
             </tr>
           </thead>
           <tbody id="tbody">
@@ -94,6 +95,7 @@
                 event_data += '<tr>';
                 event_data += '<td>'+value.date_sampling+'</td>';
                 event_data += '<td>'+value.tclient+'</td>';
+                event_data += '<td>'+value.tsample+'</td>';
                 event_data += '</tr>';
             });
             $("#tbody").append(event_data);
