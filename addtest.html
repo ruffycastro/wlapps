@@ -161,7 +161,7 @@
             $("#userfullname").val(localStorage.getItem("fname") + ' ' + localStorage.getItem("lname"));
 
             var user_code = localStorage.getItem("lsacode");
-            if (user_code == 'RD2') {
+            if (user_code == 'RD2' || user_code == 'MDM') {
               document.getElementById('date').type = 'date';
             }
 
