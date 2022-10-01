@@ -60,7 +60,7 @@
           </div>
           <div class="form-group">
             <label>Receipt Number</label>
-            <input type="number" name="receipt-number" class="form-control" required>
+            <input type="number" id="receipt-number" name="receipt-number" class="form-control" required>
           </div>
           <div class="form-group">
             <label>Amount</label>
@@ -134,8 +134,10 @@
               var url = new URL(url_string);
               var c = url.searchParams.get("result_id");
               var d = url.searchParams.get("client_id");
+              var cnumber = url.searchParams.get("receipt-number");
               $("#result_id").val(c);
               $("#client_id").val(d);
+              $("#receipt-number").val(cnumber.replace(/\D/g,''));
 
           });
 
