@@ -47,6 +47,7 @@
           <input type="hidden" name="usercode" id="usercode">
           <input type="hidden" name="result_id" id="result_id">
           <input type="hidden" name="client_id" id="client_id">
+          <input type="hidden" name="contact_no" id="contact_no">
           <div class="form-group">
             <label>Date</label>
             <input id="date" type="date" name="date" class="form-control">
@@ -60,7 +61,7 @@
           </div>
           <div class="form-group">
             <label>Receipt Number</label>
-            <input type="number" id="receipt-number" name="receipt-number" class="form-control" required>
+            <input type="number" name="receipt-number" class="form-control" required>
           </div>
           <div class="form-group">
             <label>Amount</label>
@@ -137,7 +138,7 @@
               var cnumber = url.searchParams.get("receipt-number");
               $("#result_id").val(c);
               $("#client_id").val(d);
-              $("#receipt-number").val(cnumber.replace(/\D/g,''));
+              $("#contact_no").val(cnumber.replace(/\D/g,''));
 
           });
 
