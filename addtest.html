@@ -45,6 +45,8 @@
             <input type="hidden" name="userid" id="userid">
             <input type="hidden" name="usercode" id="usercode">
             <input type="hidden" name="userfullname" id="userfullname">
+            <input type="hidden" name="longlitude" id="longlitude">
+            <input type="hidden" name="latitude" id="latitude">
             <div style="display:none;">
             <label>CRF Number</label>
             <div id="crftxtt" style="font-size: 30px;font-weight: bold;"></div>
@@ -186,6 +188,23 @@
                   //$('crftxt').innerHTML(result)+"-"+usercode;
                 }
               });
+            //Get Location
+              if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition);
+              } else { 
+                x.innerHTML = "Geolocation is not supported by this browser.";
+              }
+            
+
+            function showPosition(position) {
+              //document.getElementById('client_response_id').value=c;
+              /*x.innerHTML = "Latitude: " + position.coords.latitude + 
+              "<br>Longitude: " + position.coords.longitude; */
+              var lat = position.coords.latitude;
+              var long = position.coords.longitude;
+              document.getElementById('latitude').value=lat;
+              document.getElementById('longlitude').value=long;
+            }
 
           });
               $("#type").on('change', function() {
