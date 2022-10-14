@@ -24,7 +24,7 @@
   <meta name="mobile-web-app-capable" content="yes">
   <link rel="manifest" href="/manifest.json" />
     </head>
-    <body>
+    <body style="padding-bottom: 50px !important;padding-top: 50px !important;">
       <!-- Fixed navbar -->
     <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container">
@@ -46,7 +46,7 @@
       </div>
     </nav>
     <div class="container">
-      <div class="page-header">&nbsp;&nbsp;&nbsp;</div>
+      <!-- <div class="page-header">&nbsp;&nbsp;&nbsp;</div> -->
       <p style="text-align:center;"><h3>Welcome</h3></p>
       <div id="loading" style="display:none;margin:auto;" class="loader"></div>
       <div id="div1">
@@ -126,27 +126,11 @@
         </div>
       </div>
     </div>
-    <footer class="footer">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-6"><p class="text-muted" id="fullname"></p></div>
-          <div class="col-md-6 text-right"></div>
-        </div>
+<nav class="navbar navbar-default navbar-fixed-bottom">
+  <div class="container">
+        <a class="navbar-brand" href="#"><span id="fullname"></span></a>
       </div>
-      <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-        <h3 id="myModalLabel">Modal header</h3>
-    </div>
-    <div class="modal-body">
-        <p>One fine body…</p>
-    </div>
-    <div class="modal-footer">
-        <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-        <button class="btn btn-primary">Save changes</button>
-    </div>
-</div>
-    </footer>
+</nav>
       <!-- End of Add Test -->
       <script src="js/jquery-1.12.4.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
@@ -173,19 +157,6 @@
       });
     
   });
-  /*document.getElementById("add_expenses").addEventListener("click", function() {
-    event.preventDefault();
-    $("#loading").show();
-      $.ajax({
-        type: 'get',
-        url: 'https://unbloody-curlew-0788.dataplicity.io/api/myapi.php',
-        data: $('form').serialize(),
-        success: function (result) {
-          $("#loading").hide();
-          $("#div1").html(result);
-        }
-      });
-  }); */
 </script>
 <script src="js/custom.js"></script>
 <script src="js/app.js" async></script>
