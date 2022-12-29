@@ -75,7 +75,7 @@
       $("#loading").show();
       $.ajax({
         type: 'get',
-        url: 'https://unbloody-curlew-0788.dataplicity.io/api/myapi.php',
+        url: 'https://myapps.webphilservices.xyz/api/myapi.php',
         data: $('form').serialize(),
         success: function (result) {
           $("#loading").hide();
@@ -84,6 +84,22 @@
         }
       });
   });
+</script>
+<script type="text/javascript">
+  $('form[name="collectionsave"]').on('submit', function (e) {
+e.preventDefault();
+
+          $.ajax({
+            type: 'post',
+            url: 'https://myapps.webphilservices.xyz/api/collectionsave.php',
+            data: $(this).serialize(), ///////// <<<<<<<<<<<<< you can use $(this) here
+            success: function (data) {
+              var div = document.getElementById('message_collection');
+          div.innerHTML = div.innerHTML + data;
+            }
+          });
+
+        });
 </script>
 <script src="js/custom.js"></script>
     </body>
