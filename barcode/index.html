@@ -16,12 +16,16 @@
 	<div id="dec">result
 		<!-- <img id="pic" src="../code2.jpeg"> -->
 	</div>
+	<form>
+		<input type=button value="Start capturing" onClick="take_snapshot()">
+		<!-- <input type=button value="Convert" onClick="convert()"> -->
+	</form>
 	
-	<div id="reader" width="600px"></div>
+	<div id="my_camera" style="width:1280px; height:720px;"></div>
 	<div id="results">Your captured image will appear here...
 		<!-- <img id="pic" src="../code2.jpeg"> -->
 	</div>
-	<script src="https://unpkg.com/html5-qrcode" type="text/javascript">
+	
 	<!-- First, include the Webcam.js JavaScript Library -->
 	<script type="text/javascript" src="webcam.js"></script>
 	<script type="text/javascript" src="decoder.js"></script>
