@@ -41,18 +41,7 @@
                     <div class="col-lg-8">
                         <h2>Verify you Water Analysis</h2>
                         <p class="lead">
-                            <form class="form-inline" action="" method="GET">
-                                <input type="hidden" name="verification">
-                                <div class="form-group">
-                                    <label>Input you water <strong>Reference Number</strong></label>
-                                    <small>This is you 6 digit number received via SMS.</small>
-                                    <input type="text" name="crf" class="form-control">
-                                </div>
-                                <div class="form-group">
-                                    <label></label>
-                                    <input type="submit" class="btn btn-lg btn-success w-100" value="VERIFY">
-                                </div>
-                            </form>
+                            <div style="width: 500px" id="reader"></div>
                         </p>
                             <div id="div1"></div>
                             <strong>NOTE:</strong>
@@ -99,8 +88,18 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         <!-- Core theme JS-->
         <script src="js/scripts.js"></script>
-        <script src="js/api.js"></script>
+        <script src="js/html5-qrcode.min.js"></script>
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script type="text/javascript">
+        	function onScanSuccess(decodedText, decodedResult) {
+			    // Handle on success condition with the decoded text or result.
+			    console.log(`Scan result: ${decodedText}`, decodedResult);
+			}
+
+			var html5QrcodeScanner = new Html5QrcodeScanner(
+				"reader", { fps: 10, qrbox: 250 });
+			html5QrcodeScanner.render(onScanSuccess);
+        </script>
     </body>
 </html>
