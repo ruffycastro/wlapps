@@ -96,6 +96,15 @@
         	function onScanSuccess(decodedText, decodedResult) {
 			    // Handle on success condition with the decoded text or result.
 			    console.log(`Scan result: ${decodedText}`, decodedResult);
+			    var barcode = decodedText;
+			    $.ajax({
+                type: 'get',
+                url: 'https://myapps.webphilservices.xyz/api/barcode.php?barcode='+ barcode,
+                success: function (result) {
+                  $('#loading').hide();
+                  $("#div1").html(result);
+                }
+              });
 			}
 
 			var html5QrcodeScanner = new Html5QrcodeScanner(
