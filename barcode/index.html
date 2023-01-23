@@ -99,7 +99,8 @@
 			    var barcode = decodedText;
 			    $.ajax({
                 type: 'get',
-                url: 'https://myapps.webphilservices.xyz/api/barcode.php?barcode='+ barcode,
+                url: 'https://myapps.webphilservices.xyz/api/barcode.php',
+                data: { barcode: barcode },
                 success: function (result) {
                   $('#loading').hide();
                   $("#div1").html(result);
