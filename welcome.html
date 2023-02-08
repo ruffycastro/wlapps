@@ -48,6 +48,7 @@
     <div class="container">
       <!-- <div class="page-header">&nbsp;&nbsp;&nbsp;</div> -->
       <p style="text-align:center;"><h3>Welcome</h3></p>
+      <div id="checkin"></div>
       <div id="loading" style="display:none;margin:auto;" class="loader"></div>
       <div id="div1">
         <div class="btn-group btn-group-justified" role="group" aria-label="...">
@@ -145,6 +146,7 @@
       $("#lname").val(localStorage.getItem("lname"));
 
       var usercode = localStorage.getItem("lsacode");
+      var userid = localStorage.getItem("userid");
 
       /*Get reminders count */
     $.ajax({
@@ -154,8 +156,27 @@
           $("#reminderscount").html(result);
         }
       });
+
+    $.ajax({
+        type: 'get',
+        url: 'https://myapps.webphilservices.xyz/api/myapi.php?checkin=&userid='+userid,
+        success: function (result) {
+          $("#checkin").html(result);
+        }
+      });
     
   });
+  $('#checkincheck').on('click', function(e){
+  e.preventDefault();
+
+  $.ajax({
+        type: 'get',
+        url: 'https://myapps.webphilservices.xyz/api/myapi.php?checkinadd=&userid='+userid+'&usercode='+usercode,
+        success: function (result) {
+          $("#checkin").html(result);
+        }
+      });
+})
 </script>
 <script src="js/custom.js"></script>
 <script src="js/app.js" async></script>
