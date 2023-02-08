@@ -169,6 +169,9 @@
   $('#checkincheck').on('click', function(e){
   e.preventDefault();
 
+  var usercode = localStorage.getItem("lsacode");
+  var userid = localStorage.getItem("userid");
+
   $.ajax({
         type: 'get',
         url: 'https://myapps.webphilservices.xyz/api/myapi.php?checkinadd=&userid='+userid+'&usercode='+usercode,
