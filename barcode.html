@@ -72,8 +72,8 @@
           // Handle on success condition with the decoded text or result.
           console.log(`Scan result: ${decodedText}`, decodedResult);
           var barcode = decodedText;
-                alert (barcode);
-          $.ajax({
+          window.location="resultscan.html?scanresult="+barcode;
+          /*$.ajax({
                 type: 'get',
                 url: 'https://myapps.webphilservices.xyz/api/barcode.php',
                 data: { barcode: barcode },
@@ -81,7 +81,7 @@
                   $('#loading').hide();
                   $("#div1").html(result);
                 }
-              });
+              });*/
       }
 
       var html5QrcodeScanner = new Html5QrcodeScanner(
