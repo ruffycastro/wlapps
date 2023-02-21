@@ -192,7 +192,7 @@ $('#checkincheck').on('click',function (){
    url :'https://myapps.webphilservices.xyz/api/myapi.php?checkinadd=&userid='+userid+'&usercode='+usercode,
    success: function(data) {
         console.log('success',data);
-        $("#checkin").html(result);
+        $("#checkin").html(data);
 
    },
    error:function(jqXHR,textStatus,errorThrown ){
