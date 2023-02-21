@@ -163,7 +163,9 @@
         type: 'get',
         url: 'https://myapps.webphilservices.xyz/api/myapi.php?checkin=&userid='+userid,
         success: function (result) {
-          document.getElementById("checkin").style.display = "none";
+          if(result=="ok"){
+            document.getElementById("checkin").style.display = "none";
+          }
         }
       });
     
