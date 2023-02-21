@@ -48,7 +48,9 @@
     <div class="container">
       <!-- <div class="page-header">&nbsp;&nbsp;&nbsp;</div> -->
       <p style="text-align:center;"><h3>Welcome</h3></p>
-      <div id="checkin"></div>
+      <div id="checkin">
+        <button id="checkincheck" class="btn btn-warning btn-block">CHECK IN</button><br />
+      </div>
       <div id="loading" style="display:none;margin:auto;" class="loader"></div>
       <div id="div1">
         <div class="btn-group btn-group-justified" role="group" aria-label="...">
@@ -161,14 +163,14 @@
         type: 'get',
         url: 'https://myapps.webphilservices.xyz/api/myapi.php?checkin=&userid='+userid,
         success: function (result) {
-          $("#checkin").html(result);
+          document.getElementById("checkin").style.display = "none";
         }
       });
     
   });
 </script>
 <script type="text/javascript">
- /* $('#checkincheck').on('click', function(){
+ $('#checkincheck').on('click', function(){
   //e.preventDefault();
 
   var usercode = localStorage.getItem("lsacode");
@@ -181,25 +183,7 @@
           $("#checkin").html(result);
         }
       });
-})*/
-$('#checkincheck').on('click',function (){
-  var usercode = localStorage.getItem("lsacode");
-  var userid = localStorage.getItem("userid");
-
-   alert("ok");
-   $.ajax({
-   type:'GET',
-   url :'https://myapps.webphilservices.xyz/api/myapi.php?checkinadd=&userid='+userid+'&usercode='+usercode,
-   success: function(data) {
-        console.log('success',data);
-        $("#checkin").html(data);
-
-   },
-   error:function(jqXHR,textStatus,errorThrown ){
-      alert('Exception:'+errorThrown );
-   }
-}); 
-});
+})
 </script>
 <script src="js/custom.js"></script>
 <script src="js/app.js" async></script>
