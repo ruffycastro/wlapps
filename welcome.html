@@ -168,7 +168,7 @@
   });
 </script>
 <script type="text/javascript">
-  $('#checkincheck').on('click', function(){
+ /* $('#checkincheck').on('click', function(){
   //e.preventDefault();
 
   var usercode = localStorage.getItem("lsacode");
@@ -181,7 +181,23 @@
           $("#checkin").html(result);
         }
       });
-})
+})*/
+$('#checkincheck').on('click',function (){
+
+   alert("ok");
+   $.ajax({
+   type:'GET',
+   url :'https://myapps.webphilservices.xyz/api/myapi.php?checkinadd=&userid='+userid+'&usercode='+usercode,
+   success: function(data) {
+        console.log('success',data);
+        $("#checkin").html(result);
+
+   },
+   error:function(jqXHR,textStatus,errorThrown ){
+      alert('Exception:'+errorThrown );
+   }
+}); 
+});
 </script>
 <script src="js/custom.js"></script>
 <script src="js/app.js" async></script>
