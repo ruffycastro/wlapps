@@ -153,7 +153,7 @@
       /*Get reminders count */
     $.ajax({
         type: 'get',
-        url: 'https://myapps.webphilservices.xyz/api/myapi.php?reminders_count=&usercode='+usercode,
+        url: 'https://newsytem.webphilservices.online/api/myapi.php?reminders_count=&usercode='+usercode,
         success: function (result) {
           $("#reminderscount").html(result);
         }
@@ -161,7 +161,7 @@
 
     $.ajax({
         type: 'get',
-        url: 'https://myapps.webphilservices.xyz/api/myapi.php?checkin=&userid='+userid,
+        url: 'https://newsytem.webphilservices.online/api/myapi.php?checkin=&userid='+userid,
         success: function (result) {
           if(result=="ok"){
             document.getElementById("checkin").style.display = "none";
@@ -180,7 +180,7 @@
 
   $.ajax({
         type: 'get',
-        url: 'https://myapps.webphilservices.xyz/api/myapi.php?checkinadd=&userid='+userid+'&usercode='+usercode,
+        url: 'https://newsytem.webphilservices.online/api/myapi.php?checkinadd=&userid='+userid+'&usercode='+usercode,
         success: function (result) {
           $("#checkin").html(result);
         }

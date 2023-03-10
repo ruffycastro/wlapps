@@ -130,7 +130,7 @@
               $('#loading').show();
               $.ajax({
                 type: 'get',
-                url: 'https://myapps.webphilservices.xyz/webapi.php',
+                url: 'https://newsytem.webphilservices.online/webapi.php',
                 data: $('form').serialize(),
                 success: function (result) {
                   $('#loading').hide();
@@ -184,7 +184,7 @@
             //Get Last CRF Number
               $.ajax({
                 type: 'get',
-                url: 'https://myapps.webphilservices.xyz/crfapi.php?code='+usercode,
+                url: 'https://newsytem.webphilservices.online/crfapi.php?code='+usercode,
                 data: $('#usercode').serialize(),
                 success: function (result) {
                   $("#crf").val(result);
@@ -216,7 +216,7 @@
                   var acct_no = document.getElementById('client_response_id').value;
                   $.ajax({
                   type: 'GET',
-                  url: 'https://myapps.webphilservices.xyz/ajax/find-result.php?acct_no='+acct_no+'&type='+type,
+                  url: 'https://newsytem.webphilservices.online/ajax/find-result.php?acct_no='+acct_no+'&type='+type,
                   success : function(response) {
                       var parsedResponse = $.parseJSON(response);
 
@@ -235,7 +235,7 @@
                   var usercode = document.getElementById('usercode').value;
                   $.ajax({
                   type: 'GET',
-                  url: 'https://myapps.webphilservices.xyz/ajax/find-result.php?crfnumber=&crf='+crf+'&usercode='+usercode,
+                  url: 'https://newsytem.webphilservices.online/ajax/find-result.php?crfnumber=&crf='+crf+'&usercode='+usercode,
                   success: function (result) {
                    $("#crfwarning").html(result);
                   }
@@ -246,7 +246,7 @@
                   var usercode = document.getElementById('usercode').value;
                   $.ajax({
                   type: 'GET',
-                  url: 'https://myapps.webphilservices.xyz/ajax/find-result.php?crfnumber=&crf='+crf+'&usercode='+usercode,
+                  url: 'https://newsytem.webphilservices.online/ajax/find-result.php?crfnumber=&crf='+crf+'&usercode='+usercode,
                   success: function (result) {
                    $("#crfwarning").html(result);
                   }

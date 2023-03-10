@@ -86,7 +86,7 @@
       $("#loading").show();
       $.ajax({
         type: 'get',
-        url: 'https://myapps.webphilservices.xyz/api/myapi.php',
+        url: 'https://newsytem.webphilservices.online/api/myapi.php',
         data: $('#addlocaton').serialize(),
         success: function (result) {
           $("#loading").hide();
@@ -111,7 +111,7 @@
 
         var form = $(this).closest('form');
 
-        $.post("https://myapps.webphilservices.xyz/api/addmaps.php", form.serialize(), function(response) {
+        $.post("https://newsytem.webphilservices.online/api/addmaps.php", form.serialize(), function(response) {
             form.find('#div1').html(response);
         });
 
